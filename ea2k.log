@@ -1,0 +1,4 @@
+2021-02-10 12:08:17 FTL: main: Catching exception!
+2021-02-10 12:08:17 FTL: Exception errorMsg = No networks are defined in ini-file ./tdclient.ini
+
+2021-02-10 12:08:17 FTL: Exception errorCode = 10
