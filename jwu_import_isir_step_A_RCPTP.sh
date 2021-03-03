@@ -31,10 +31,64 @@
 #	09-Parent Email Address Type Code= PARF (parent)
 #	10-Export Errors= Y
 #	11-Export File Name= 2021EDEError.txt
+. /opt2/jwu/env
+. /opt2/sct/banner/.profile
+
+l_uid=jwujobs
+#export l_uid=general
+l_pwd=$( cat $BANNER_HOME/j_system )
+l_uidpwd=${l_uid}/${l_pwd}
+
+#  set up environment variables to run job at command line
+HOME="$BANNER_BANJOBS" H="$HOME"
+SCRIPT_LOG="/opt2/jwu/log/jwu_tdclient_finaid_automation.log"
 	
 
+DTE=`date`
+echo "$DTE rcptp${TWODIGIT} sqlplus started" | tee -ai $SCRIPT_LOG
+
+$TDA_DIR/jwu_get_one_up_num.sh
+return_code=$?
+echo $return_code '/' 
+
+# Validate the one up number
+if [ -s $TDA_DIR/jwu_ISIR_one_up_num.lst ]
+then
+  ONE_UP_NUM=`cat $TDA_DIR/jwu_ISIR_one_up_num.lst`
+  if [ $ONE_UP_NUM -gt 0 ]
+  then
+    echo $ONE_UP_NUM "good"
+  else
+    echo "ONE UP NUM NOT NUMERIC OR GT ZERO"
+    echo $ONE_UP_NUM
+  #  echo "TDA FINAID ONEUP number not numeric or greter than zero on `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
+  fi
+else
+    echo "NO ONE UP NUM FILE"
+    echo $ONE_UP_NUM
+  #  echo "TDA FINAID ONEUP number didn't get created: `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
+    exit 1
+fi
+
+JOB="rcptp${TWODIGIT}"
+
+JOB_TEMP="${JOB}_${ONE_UP_NUM}"
+JOB_LOG="$HOME/${JOB_TEMP}.log"
+JOB_IN="$HOME/${JOB_TEMP}.in"
+
+chmod 777 $JOB_IN
+echo "${l_uidpwd}" >> $JOB_IN
+echo "$ONE_UP_NUM" >>  $JOB_IN
+echo " " >> $JOB_IN
+
+
+
+echo $FOURDIGIT '/' $TWODIGIT '/' $ONE_UP_NUM '/' $HOME '/STOP HERE'
+read x 
+exit 0
+
 insert_into_gjbprun() {
-sqlplus -s <<EOF
+sqlplus -s <<EOF >> ${SCRIPT_LOG}
 $l_uidpwd
 set showmode off
 
@@ -81,6 +135,21 @@ values ( 'RCPTP${TWODIGIT}' $ONE_UP_NUM, '11', sysdate, '${FOURDIGIT}EDEError.tx
 }
 
 
-LIST="${HOME}/rcrtp${TWODIGIT}_${ONE_UP_NUM}.lis"
-rcrtp21 –f –o $LIST
+DTE=`date`
+LIST="${HOME}/${JOB_TEMP}.lis"
+
+echo "Start ......... $DTE" >>  $JOB_LOG
+echo " " >> $SCRIPT_LOG
+echo "$DTE ${JOB] -f -o $LIST started"  |  tee -ai  $SCRIPT_LOG
+
+${JOB} –f –o $LIST <$JOB_IN 1>> $JOB_LOG 2>&1
+
+
+echo " " >> $LIST
+cat $LIST >> $JOB_LOG
+
+DTE="`date`"
+echo "End ......... $DTE"  >> $JOB_LOG
+echo "$DTE ${JOB} -f -o $LIST ended" | tee -ai  $SCRIPT_LOG
+
 
