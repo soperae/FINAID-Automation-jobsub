@@ -19,12 +19,12 @@
 #
 # use concatenaged file that is sent to $BANNER_HOME/dataload/finaid 
 # parameters for RCPMTCH
-•	01-Aid Year=2021
-•	02-Data Source Code=EDE
-•	03-Generated ID/Use SSN=G
-•	04-Value for New Students=H 
-•	05-Sort Order Indicator=N (name)
-•	06-Common Matching Source Code=FINAID
+#	01-Aid Year=2021
+#	02-Data Source Code=EDE
+#	03-Generated ID/Use SSN=G
+#	04-Value for New Students=H 
+#	05-Sort Order Indicator=N (name)
+#	06-Common Matching Source Code=FINAID
 
 . /opt2/jwu/env
 . /opt2/sct/banner/.profile
@@ -93,7 +93,7 @@ set trim on
 set feedback off
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCPMTCH' $ONE_UP_NUM, '01', sysdate, ${FOURDIGIT} );
+values ( 'RCPMTCH' $ONE_UP_NUM, '01', sysdate, '${FOURDIGIT}' );
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
 values ( 'RCPMTCH' $ONE_UP_NUM, '02', sysdate, 'EDE' );
@@ -109,7 +109,8 @@ values ( 'RCPMTCH' $ONE_UP_NUM, '05', sysdate, 'N' );
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
 values ( 'RCPMTCH' $ONE_UP_NUM, '06', sysdate, 'FINAID');
-\
+exit;
+EOF
 }
 
 
@@ -118,7 +119,7 @@ LIST="${HOME}/rcpmtch_${ONE_UP_NUM}.lis"
 
 echo "Start ......... $DTE" >>  $JOB_LOG
 echo " " >> $SCRIPT_LOG
-echo "$DTE ${JOB] -f -o $LIST started"  |  tee -ai  $SCRIPT_LOG
+echo "$DTE ${JOB} -f -o $LIST started"  |  tee -ai  $SCRIPT_LOG
 
 rcpmtch –f –o $LIST <$JOB_IN 1>> $JOB_LOG 2>&1
 

@@ -100,7 +100,7 @@ set trim on
 set feedback off
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCPTP${TWODIGIT}' $ONE_UP_NUM, '01', sysdate, ${FOURDIGIT} );
+values ( 'RCPTP${TWODIGIT}' $ONE_UP_NUM, '01', sysdate, '${FOURDIGIT}' );
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
 values ( 'RCPTP${TWODIGIT}' $ONE_UP_NUM, '02', sysdate, 'EDE' );
@@ -131,7 +131,8 @@ values ( 'RCPTP${TWODIGIT}' $ONE_UP_NUM, '10', sysdate, 'Y’);
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
 values ( 'RCPTP${TWODIGIT}' $ONE_UP_NUM, '11', sysdate, '${FOURDIGIT}EDEError.txt');
-\
+exit;
+EOF
 }
 
 
@@ -140,7 +141,7 @@ LIST="${HOME}/${JOB_TEMP}.lis"
 
 echo "Start ......... $DTE" >>  $JOB_LOG
 echo " " >> $SCRIPT_LOG
-echo "$DTE ${JOB] -f -o $LIST started"  |  tee -ai  $SCRIPT_LOG
+echo "$DTE ${JOB} -f -o $LIST started"  |  tee -ai  $SCRIPT_LOG
 
 ${JOB} –f –o $LIST <$JOB_IN 1>> $JOB_LOG 2>&1
 
