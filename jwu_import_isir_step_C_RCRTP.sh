@@ -10,7 +10,6 @@
 # Comment:
 #    import RCRTP data for FINAID  by running Banner job submission at the command line
 #    Run the following  jobs:
-#    Database: jwu.SWS_CAMPUS_TRANSFER_STUDENTS 
 #    RCRTPXX - Banner baseline job to send DEpt of ED concatenated file to Banner
 #
 # History:
@@ -18,7 +17,7 @@
 #   ---  ----------  ---------- ------------------------------------
 #
 #
-# use concatenaged file that is sent to $BANNER_HOME/dataload/finaid 
+# use concatenated file that is sent to $BANNER_HOME/dataload/finaid 
 # parameters for RCRTPxx
 #	01-Aid Year=2021
 #	02-Data Source Code=EDE

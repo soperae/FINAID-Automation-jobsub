@@ -10,7 +10,6 @@
 # Comment:
 #    import RCPTP data for FINAID  by running Banner job submission at the command line
 #    Run the following  jobs:
-#    Database: jwu.SWS_CAMPUS_TRANSFER_STUDENTS 
 #    RCPTPXX - Banner baseline job to send DEpt of ED concatenated file to Banner
 #
 # History:
