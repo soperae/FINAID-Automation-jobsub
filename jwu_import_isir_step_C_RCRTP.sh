@@ -49,8 +49,8 @@ l_pwd=$( cat $BANNER_HOME/j_system )
 l_uidpwd=${l_uid}/${l_pwd}
 
 #  set up environment variables to run job at command line
-HOME="$BANNER_BANJOBS" H="$HOME"
-SCRIPT_LOG="/opt2/jwu/log/jwu_tdclient_finaid_automation.log"
+#HOME="$BANNER_BANJOBS" H="$HOME"
+SCRIPT_LOG="/opt2/jwu/log/jwu_tdclient_finaid_auto_stepC_RCRTPXX.log"
 	
 
 DTE=`date`
@@ -58,7 +58,6 @@ echo "$DTE rcrtp${TWODIGIT} sqlplus started" | tee -ai $SCRIPT_LOG
 
 $TDA_DIR/jwu_get_one_up_num.sh
 return_code=$?
-echo $return_code '/' 
 
 # Validate the one up number
 if [ -s $TDA_DIR/jwu_ISIR_one_up_num.lst ]
@@ -82,8 +81,8 @@ fi
 JOB="rcrtp${TWODIGIT}"
 
 JOB_TEMP="${JOB}_${ONE_UP_NUM}"
-JOB_LOG="$HOME/${JOB_TEMP}.log"
-JOB_IN="$HOME/${JOB_TEMP}.in"
+JOB_LOG="$BANNER_BANJOBS/${JOB_TEMP}.log"
+JOB_IN="$BANNER_BANJOBS/${JOB_TEMP}.in"
 
 chmod 777 $JOB_IN
 echo "${l_uidpwd}" >> $JOB_IN
@@ -92,7 +91,7 @@ echo " " >> $JOB_IN
 
 
 
-echo $FOURDIGIT '/' $TWODIGIT '/' $ONE_UP_NUM '/' $HOME '/STOP HERE'
+echo $FOURDIGIT '/' $TWODIGIT '/' $ONE_UP_NUM '/' $BANNER_BANJOBS '/STOP HERE'
 read x 
 
 insert_into_gjbprun() {
@@ -163,7 +162,7 @@ EOF
 
 
 DTE=`date`
-LIST="${HOME}/${JOB_TEMP}.lis"
+LIST="${BANNER_BANJOBS}/${JOB_TEMP}.lis"
 
 echo "Start ......... $DTE" >>  $JOB_LOG
 echo " " >> $SCRIPT_LOG
@@ -178,3 +177,7 @@ cat $LIST >> $JOB_LOG
 DTE="`date`"
 echo "End ......... $DTE"  >> $JOB_LOG
 echo "$DTE ${JOB} -f -o $LIST ended" | tee -ai  $SCRIPT_LOG
+
+# clean up  one up file
+rm  -f $TDA_DIR/jwu_ISIR_one_up_num.lst
+

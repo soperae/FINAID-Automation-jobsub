@@ -17,8 +17,10 @@ export l_prnt=$2
 # third parameter
 export FOURDIGIT=$3
 export TWODIGIT=${FOURDIGIT:2:2}
-echo ${TWODIGIT} '/'  $l_uid '/'$l_pwd '/' $l_uidpwd
-read x
+
+#echo ${TWODIGIT} '/'  $l_uid '/'$l_pwd '/' $l_uidpwd
+#read x
+
 RECIPIENT=asoper@jwu.edu
 
 rm -f $TDA_DIR/jwu_ISIR_one_up_num.lst
@@ -45,31 +47,31 @@ rm -f $TDA_DIR/jwu_ISIR_one_up_num.lst
 #  jobsub steps -  only processing the FINAID steps  A,B, & C
 
 #  RCPTP21 STEP A -   insert file names into glbprun
-## TDA_DIR/jwu_import_isir_step_A_RCPTP.sh 
-sh -x $TDA_DIR/aljunk_stepA.sh
+sh -x TDA_DIR/jwu_import_isir_step_A_RCPTP.sh 
+##sh -x $TDA_DIR/aljunk_stepA.sh
 return_code=$?
-  echo $return_code '/ ' $ONE_UP_NUM
+  echo $return_code '/ ' POST RCPTPXX STOP HERE'
   read x
 
 if [ $return_code -eq 0 ]
 then
 
 # RCPMTCH STEP B
-## $TDA_DIR/jwu_import_isir_step_B_RCPMTCH.sh
-$TDA_DIR/aljunk_stepB.sh
+sh -x $TDA_DIR/jwu_import_isir_step_B_RCPMTCH.sh
+# sh -x $TDA_DIR/aljunk_stepB.sh
   return_code=$?
-  echo $return_code '/ ' $ONE_UP_NUM
+  echo $return_code '/ POST RCPMTCH STOP HERE'
   read x
   if [ $return_code -eq 0 ]
   then
 
 #  RCRTP21 STEP C
-## $TDA_DIR/jwu_import_isir_step_C_RCRTP.sh
-$TDA_DIR/aljunk_stepC.sh
+sh -x $TDA_DIR/jwu_import_isir_step_C_RCRTP.sh
+## $TDA_DIR/aljunk_stepC.sh
 
   return_code=$?
-  echo $return_code '/ ' $ONE_UP_NUM
-  read x
+  echo $return_code '/ '
+# read x
     if [ $return_code -gt 0 ]
     then
       echo $return_code '/ RCPTPxx Failed'

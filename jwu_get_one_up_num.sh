@@ -33,6 +33,6 @@ then
 else
     echo "ONE UP NUM NOT NUMERIC OR GT ZERO"
     echo $ONE_UP_NUM_TEST
-    echo "TDA FINAID ONEUP number not numeric or greter than zero on `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
+    echo "TDA FINAID ONEUP number not numeric or greater than zero on `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
     exit 1
 fi

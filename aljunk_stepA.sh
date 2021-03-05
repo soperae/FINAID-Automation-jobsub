@@ -18,7 +18,7 @@
 #   ---  ----------  ---------- ------------------------------------
 #
 #
-# use concatenaged file that is sent to $BANNER_HOME/dataload/finaid 
+# use concatenaged file that is sent to $BANNER_BANNER_BANJOBS/dataload/finaid 
 # parameters for RCPTPxx
 #	01-Aid Year Code for = 2021
 #	02-Data Source Code= EDE 
@@ -36,24 +36,25 @@
 
 l_uid=jwujobs
 #export l_uid=general
-l_pwd=$( cat $BANNER_HOME/j_system )
+l_pwd=$( cat $HOME/j_system )
 l_uidpwd=${l_uid}/${l_pwd}
 
-echo $l_uidpwd '| STOP HERE'
-read x
+#echo $l_uidpwd '|  user info STOP HERE'
+#read x
 
 #  set up environment variables to run job at command line
-HOME="$BANNER_BANJOBS" H="$HOME"
+#HOME="$BANNER_BANJOBS" 
 SCRIPT_LOG="/opt2/jwu/log/jwu_tdclient_finaid_automation.log"
 	
 JOB="rcptp${TWODIGIT}"
 
 DTE=`date`
 echo "$DTE rcptp${TWODIGIT} sqlplus started" | tee -ai $SCRIPT_LOG
-
+# pass the one up number in the return code 
 sh -x $TDA_DIR/jwu_get_one_up_num.sh
 return_code=$?
-if [ -s $TDA_DIR/jwu_ISIR_one_up.lst ]
+
+if [ -s $TDA_DIR/jwu_ISIR_one_up_num.lst ]
 then
 
    ONE_UP_NUM=`cat $TDA_DIR/jwu_ISIR_one_up_num.lst`
@@ -81,18 +82,22 @@ else
     exit 1
 fi
 
-echo $return_code '/' $ONE_UP_NUM
 export TEMP="${JOB}_${ONE_UP_NUM}"
-export LOG="$HOME/${TEMP}.log"
-export IN="$HOME/${TEMP}.in"
-echo $JOB '/' $TEMP '/' $LOG '/' $IN '/' $HOME '/' $ONE_UP_NUM '/' $TWODIGIT
+export LOG="$BANNER_BANJOBS/${TEMP}.log"
+export IN="$BANNER_BANJOBS/${TEMP}.in"
+echo $JOB '/' $TEMP '/' $LOG '/' $IN '/' $BANNER_BANJOBS '/' $ONE_UP_NUM '/' $TWODIGIT 'just before sql'
 read x
+
 sqlplus -s <<EOF >>$SCRIPT_LOG
 $l_uidpwd
 select sysdate from dual;
 exit;
 EOF
 
+# clean up  one up file
+rm  -f $TDA_DIR/jwu_ISIR_one_up_num.lst
+
+## stop all if error
 if [ $return_code -eq 1 ]
 then
   exit 1
