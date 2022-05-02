@@ -8,7 +8,7 @@
 #$2 - Financial aid dataload directory path (no slash at the end)
 #$3 - TDClient directory (no slash at the end) N/A  A.Soper 02.16.2021
 FILENAME=$1
-. $HOME/set_TDA_parameters.sh 
+. /opt2/jwu/bin/TDAccess/set_TDA_parameters.sh 
 #FIRSTEIGHT=${FILENAME:0:8}
 #NEWFILE="$FIRSTEIGHT.dat"
 #echo $FIRSTEIGHT

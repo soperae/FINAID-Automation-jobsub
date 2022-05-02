@@ -8,10 +8,11 @@
 #Parameter $3 is meant to be the $DATA_HOME/finaid path (no slash at the end)
 #example execution:
 #./tdc_strip_and_concat_isir.sh 1718 /appworx/Tdbs1/TDClient /global/apwx/Tusrlibs/finaid
-. $HOME/set_TDA_parameters.sh 
+. /opt2/jwu/bin/TDAccess/set_TDA_parameters.sh 
 
+DTE_YMD=`date +%F`
 FILES="$TDA_DIR/incoming/*op*.tdc"
-NEWFILE="$TDA_DIR/incoming/${FOURDIGIT}isir_comb.tdc"
+NEWFILE="$TDA_DIR/incoming/${FOURDIGIT}isir_comb_${DTE_YMD}.tdc"
 #echo $NEWFILE
 
 #make sure the .tap file doesn't exist before creating
@@ -43,5 +44,6 @@ mv -f $NEWFILE $BANNER_HOME/dataload/finaid/.
 
 #cleanup incoming directory, no need to keep numbered files. Can reuse same 'base' file each time ASoper 2.26.2021
 # 
-rm -f $TDA_DIR/incoming/*.tdc
+#rm -f $TDA_DIR/incoming/*.tdc
+mv  $TDA_DIR/incoming/*.tdc
 

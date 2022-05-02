@@ -28,11 +28,11 @@ then
   # echo $ONE_UP_NUM "good"
     echo $ONE_UP_NUM > $TDA_DIR/jwu_ISIR_one_up_num.lst
     echo $ONE_UP_NUM
-    read x
+#    read x
     exit 0
 else
     echo "ONE UP NUM NOT NUMERIC OR GT ZERO"
     echo $ONE_UP_NUM_TEST
-    echo "TDA FINAID ONEUP number not numeric or greater than zero on `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
+    echo "TDA ${TDA_ENV} FINAID ONEUP number not numeric or greater than zero on `date`." | mailx  -s "TDA ${TDA_ENV} ONE UP NUMBER ERROR" -c ${CC_RECIPIENT} ${RECIPIENT}
     exit 1
 fi

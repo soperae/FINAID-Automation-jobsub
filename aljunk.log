@@ -1,0 +1,291 @@
+*** IN FIPS MODE ***
+USING TLSv1.2 HASH SHA512
+Premaster Secret:
+0000 - 01 25 50 2d c5 87 f2 fc-bf 57 12 87 61 3a b3 18   .%P-.....W..a:..
+0010 - 5e c6 37 bb 65 53 79 4a-b6 54 b8 11 a0 a7 01 c2   ^.7.eSyJ.T......
+0020 - e1 1d 16 73 f9 5e 03 26-28 bd df f0 85 f8 b9 1f   ...s.^.&(.......
+0030 - 88 59 07 c6 4a 4b 3f 8a-53 54 24 08 fa 40 55 d1   .Y..JK?.ST$..@U.
+0040 - 49 15 31 c6 d0 7d 8b 29-                          I.1..}.)
+Client Random:
+0000 - bd d5 a5 d2 60 3a 75 0c-9a be 0d e3 ae d9 d4 b9   ....`:u.........
+0010 - 91 e8 70 21 97 39 76 1e-61 e0 92 22 41 fb 78 b6   ..p!.9v.a.."A.x.
+Server Random:
+0000 - 2e ae 1c 74 5f a6 a3 76-e0 b6 6b 97 92 0e fb ab   ...t_..v..k.....
+0010 - fb 21 4b 02 b9 31 34 4b-a1 78 91 c5 2e b9 01 69   .!K..14K.x.....i
+Master Secret:
+0000 - 5a 10 76 54 b5 04 c1 cd-db e6 dd 71 46 7f 50 89   Z.vT.......qF.P.
+0010 - 09 70 56 1b 1d eb 2a 52-c4 c0 0f c9 20 11 c3 1e   .pV...*R.... ...
+0020 - 9b 2f 0c ef f3 03 25 c8-2b 54 0a ff 14 3d 4a 03   ./....%.+T...=J.
+
+bTrade TDAccess Client Command Line         Version V3.3.1  Oct 19 2017
+
+Processing new transfer [RECVCLASS_ISIR1]
+Processing new transfer [RECVCLASS_ISIR2]
+Processing new transfer [RECVCLASS_ISIR3]
+Processing new transfer [RECVCLASS_ISIR4]
+Processing new transfer [RECVCLASS_ISIR5]
+Processing new transfer [RECVCLASS_ISIR6]
+Present working directory is [./]
+Using ini-file               [./tdclient.ini]
+Using secondary ini-file     [./exfer.ini]
+Using address book           [./tpaddrss.ini]
+
+Using ini-file network entry SAIGPORTALTEST
+using the following settings:
+Using any available client-side port
+Server sub-style:        
+Host IP name/address:    SAIGMAILBOXTEST.ED.GOV
+Host IP2 name/address:   
+Server logonUserId:      TG51339
+Server password:         ******
+Server Style:            EAFTP
+Server Case:             Leave case untouched
+Server Control Port:     26581
+Server SSL:              True
+Diffie-Hellman Only:     True
+FTP Timeout value:           0
+>>>>>>>>>> Start Stored Transfer Processing
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR1
+-----------------------------------------------
+********** Start Communications Session
+Connecting to server SAIGPORTALTEST...
+200 Command OK.
+Connected.
+200 Command OK.
+200 Command OK.
+Logged into FTP server as user TG51339
+Setting communications mode to ASCII
+200 Type is A.
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR1 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR2
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR2 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR3
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR3 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR4
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR4 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR5
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR5 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR6
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR6 completed successfully
+
+Termination started...
+Disconnecting...
+221 Goodbye.
+********** End Communications Session
+Task exit status: OK
+Program run completed successfully!
+Exit status: SUCCESS (000000)
+Processing /opt2/jwu/TDAccess/incoming/idsa22op.102.tdc file...
+Processing /opt2/jwu/TDAccess/incoming/igsa22op.101.tdc file...
+Processing /opt2/jwu/TDAccess/incoming/igsg22op.097.tdc file...
+/opt2/sct/banner / /opt2/sct/banner/dataload/finaid/2122isir_comb.tdc
+
+Tue Mar 16 16:10:05 EDT 2021 rcptp22 sqlplus started
+4082547
+4082547 good
+Tue Mar 16 16:10:06 EDT 2021 rcptp22 -f -o  started
+Tue Mar 16 16:10:06 EDT 2021 rcptp22 -f -o  ended
+Tue Mar 16 16:10:06 EDT 2021 rcpmtch sqlplus started
+4082548
+4082548 good
+2122 / 22 / 4082548 / /opt2/sct/banjobs/TEST / PRE RCMTCH INSERT STOP HERE
+Tue Mar 16 16:10:07 EDT 2021 rcpmtch -f -o  started
++ :
++ umask 000
++ H=/opt2/sct/banjobs/TEST
++ LOG=/opt2/sct/banjobs/TEST/rcpmtch_4082548.log
++ TEMP=rcpmtch_4082548
++ JOB=
++ PROC=rcpmtch
++ BANUID=faisusr
++ PSWD=bantest61
++ UIPW=
++ ONE_UP=4082548
++ PRNT=DATABASE
++ FORM=
++ PRNTOPT=
++ SUBTIME=
++ test8=
+++ expr '' : '.*'
++ test5=0
++ '[' 0 -eq 5 ']'
++ argCount=6
++ index=0
++ for param in '"$@"'
+++ expr 0 + 1
++ index=1
++ eval 'arg1=$param'
+++ arg1=rcpmtch
++ for param in '"$@"'
+++ expr 1 + 1
++ index=2
++ eval 'arg2=$param'
+++ arg2=C
++ for param in '"$@"'
+++ expr 2 + 1
++ index=3
++ eval 'arg3=$param'
+++ arg3=faisusr
++ for param in '"$@"'
+++ expr 3 + 1
++ index=4
++ eval 'arg4=$param'
+++ arg4=bantest61
++ for param in '"$@"'
+++ expr 4 + 1
++ index=5
++ eval 'arg5=$param'
+++ arg5=4082548
++ for param in '"$@"'
+++ expr 5 + 1
++ index=6
++ eval 'arg6=$param'
+++ arg6=DATABASE
++ '[' '' = : ']'
++ SUBTIME=
++ MIME=
++ STORE_DAYS=
++ FONT=
++ FONTSIZE=
++ ONPREM_PRINT=
++ '[' 6 -eq 0 ']'
++ '[' 6 -gt 13 ']'
++ case $arg2 in
+++ echo rcpmtch
+++ tr '[A-Z]' '[a-z]'
++ JOB=rcpmtch
++ case $arg3 in
++ sleep 0
++ case $arg4 in
++ UIPW=faisusr/bantest61
++ case `echo $arg7 | tr "[a-z]" "[A-Z]"` in
+++ echo
+++ tr '[a-z]' '[A-Z]'
++ FORM=' -o land'
++ '[' DATABASE = default ']'
++ '[' DATABASE = '' ']'
++ PRNTOPT='lp -dDATABASE  -o land '
++ PRNTFF=DATABASE
++ '[' '' = SWSINVO ']'
++ EXT=lis
++ EVIPRINT='/opt2/sct/banner/general/exe/evilp /opt2/sct/banner/general/exe/evicfg -eviproc rcpmtch -evispp  -o land -eviinput /opt2/sct/banjobs/TEST/rcpmtch_4082548.lis -eviout /opt2/sct/banjobs/TEST/ -evipthru lp -dDATABASE  -o land  -eviprint DATABASE'
++ ETRANSCRIPTS='/opt2/sct/banner/general/exe/evilp /opt2/sct/banner/general/exe/etrancfg -eviproc rcpmtch -evispp  -o land -eviinput /opt2/sct/banjobs/TEST/rcpmtch_4082548.lis -eviout /opt2/sct/banjobs/TEST/ -evipthru lp -dDATABASE  -o land  -eviprint DATABASE  -evilockfile -evilocktimeout 7200  -extraparam1 4082548'
+++ date
++ echo Tue Mar 16 16:10:07 EDT 2021
++ echo /opt2/sct/banner/general/exe/evilp /opt2/sct/banner/general/exe/evicfg -eviproc rcpmtch -evispp -o land -eviinput /opt2/sct/banjobs/TEST/rcpmtch_4082548.lis -eviout /opt2/sct/banjobs/TEST/ -evipthru lp -dDATABASE -o land -eviprint DATABASE
++ export JOB PROC BANUID PSWD UIPW PRNTOPT PRNT FORM LOG TEMP ONE_UP SUBTIME PROG H MIME STORE_DAYS FONT FONTSIZE ONPREM_PRINT EVIPRINT ETRANSCRIPTS
++ cat /dev/null
++ chmod 600 /opt2/sct/banjobs/TEST/rcpmtch_4082548.shl
++ case $arg2 in
++ '[' bantest61 '!=' NOTVALIDPASSWD ']'
++ cat /dev/null
++ chmod 600 /opt2/sct/banjobs/TEST/rcpmtch_4082548.in
++ echo faisusr/bantest61
++ echo 4082548
++ echo '$JOB -f -o $H/$TEMP.lis 0<$H/$TEMP.in 1>$LOG 2>&1'
++ '[' '' = 1 ']'
++ '[' '' = 2 ']'
++ '[' bantest61 '!=' NOTVALIDPASSWD ']'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.txt ]; then gurinso -n $ONE_UP -l $H/$TEMP.txt \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.html ]; then gurinso -n $ONE_UP -l $H/$TEMP.html \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.lis2 ]; then gurinso -n $ONE_UP -l $H/$TEMP.lis2 \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.dat ]; then gurinso -n $ONE_UP -l $H/$TEMP.dat \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.csv ]; then gurinso -n $ONE_UP -l $H/$TEMP.csv \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.xml ]; then gurinso -n $ONE_UP -l $H/$TEMP.xml \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ for ext in txt html lis2 dat csv xml err
++ echo 'if [ -r $H/$TEMP.err ]; then gurinso -n $ONE_UP -l $H/$TEMP.err \
+                  -j $JOB -w $BANUID $UIPW  1>>$LOG 2>&1; fi'
++ '[' DATABASE = DATABASE ']'
++ '[' bantest61 '!=' NOTVALIDPASSWD ']'
++ echo 'gurinso -n $ONE_UP -l $H/$TEMP.lis -j $JOB -w $BANUID $UIPW \
+                                          1>>$LOG 2>&1'
++ echo 'gurinso -n $ONE_UP -l $LOG -j $JOB -w $BANUID $UIPW 1>>$LOG 2>&1'
++ '[' DATABASE '!=' NOPRINT -a DATABASE '!=' DATABASE ']'
++ jsm2gorblob.shl
++ echo '/bin/rm $H/$TEMP.in 1>>$LOG 2>&1'
++ echo '/bin/rm $H/$TEMP.shl 1>>$LOG 2>&1'
++ '[' bantest61 = NOTVALIDPASSWD ']'
++ echo 'exit 0'
++ chmod +x /opt2/sct/banjobs/TEST/rcpmtch_4082548.shl
++ sh -x /opt2/sct/banjobs/TEST/rcpmtch_4082548.shl
++ H=
++ JOB=
++ PROC=
++ PROG=
++ BANUID=
++ PSWD=
++ UIPW=
++ TEMP=
++ LOG=
++ PRNT=
++ FORM=
++ PRNTOPT=
++ ONE_UP=
++ SUBTIME=
++ MIME=
++ STORE_DAYS=
++ FONT=
++ FONTSIZE=
++ ONPREM_PRINT=
++ EVIPRINT=
++ ETRANSCRIPTS=
++ export JOB PROC BANUID PSWD UIPW PRNTOPT PRNT FORM LOG TEMP ONE_UP SUBTIME PROG H MIME STORE_DAYS FONT FONTSIZE ONPREM_PRINT EVIPRINT ETRANSCRIPTS
++ exit 0
+Tue Mar 16 18:07:46 EDT 2021 rcpmtch -f -o  ended
+Tue Mar 16 18:07:46 EDT 2021 rcrtp22 sqlplus started
+4082549
+4082549 good
+Tue Mar 16 18:07:47 EDT 2021 rcrtp22 -f -o  started
+Tue Mar 16 18:07:53 EDT 2021 rcrtp22 -f -o  ended

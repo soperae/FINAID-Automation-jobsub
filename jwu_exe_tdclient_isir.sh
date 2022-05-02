@@ -8,9 +8,9 @@
 ##FOURDIGIT=$1
 #TWODIGIT=${FOURDIGIT:2:2}
 #echo $TWODIGIT
-#. $HOME/set_TDA_parameters.sh 
+. /opt2/jwu/bin/TDAccess/set_TDA_parameters.sh 
 #clean incoming directory before downloading
-rm -f $TDA_DIR/*op*.tdc
+#rm -f $TDA_DIR/incoming/*op*.tdc
 
 #build command file
 echo 'transfer=(name=RECVCLASS_ISIR1  RECEIVECLASS=IDSA'$TWODIGIT'OP    receive=./incoming/idsa'$TWODIGIT'op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
@@ -30,5 +30,5 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TDA_DIR
 # cd $TDA_DIR
 
 #Execute TDClient naming the desired command file
-./tdclientc "network=saigportaltest" RESPLOG="./temp/resplog.txt" CMDFILE="./maint/recvclass_ISIR.c" RESET
+./tdclientc "network=saigportal${TDA_ENV}" RESPLOG="./temp/resplog.txt" CMDFILE="./maint/recvclass_ISIR.c" RESET
 

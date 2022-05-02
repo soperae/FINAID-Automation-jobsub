@@ -1,7 +1,7 @@
 #!/bin/sh
-#   LOAD ISIR Step A. jwu_import_isir_step_A_RCRTP.sh
+#   LOAD ISIR Step A. jwu_import_isir_step_C_RCRTP.sh
 
-# Name:    jwu_import_isir_step_A_RCRTP.sh
+# Name:    jwu_import_isir_step_C_RCRTP.sh
 #
 # Author:  ASoper
 #
@@ -41,11 +41,15 @@
 
 . /opt2/jwu/env
 . /opt2/sct/banner/.profile
+HOME="$BANNER_BANJOBS" H="$HOME"
+export JAVA_HOME=/usr/java/jdk1.8.0_181
+PATH=$JAVA_HOME/bin:$PATH
 
-l_uid=jwujobs
-#export l_uid=general
-l_pwd=$( cat $BANNER_HOME/j_system )
+l_uid=`cat $BANNER_HOME/p_usr`
+l_pwd=$( cat $BANNER_HOME/p_system )
 l_uidpwd=${l_uid}/${l_pwd}
+
+l_prnt=$5
 
 #  set up environment variables to run job at command line
 #HOME="$BANNER_BANJOBS" H="$HOME"
@@ -68,32 +72,31 @@ then
   else
     echo "ONE UP NUM NOT NUMERIC OR GT ZERO"
     echo $ONE_UP_NUM
-  #  echo "TDA FINAID ONEUP number not numeric or greter than zero on `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
+  #  echo "TDA FINAID ONEUP number not numeric or greter than zero on `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c ${CC_RECIPIENT} ${RECIPIENT}
   fi
 else
     echo "NO ONE UP NUM FILE"
     echo $ONE_UP_NUM
-  #  echo "TDA FINAID ONEUP number didn't get created: `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c $RECIPIENT
+  #  echo "TDA FINAID ONEUP number didn't get created: `date`." | mailx  -s "TDA ONE UP NUMBER ERROR" -c ${CC_RECIPIENT} ${RECIPIENT}
     exit 1
 fi
 
 JOB="rcrtp${TWODIGIT}"
 
 JOB_TEMP="${JOB}_${ONE_UP_NUM}"
-JOB_LOG="$BANNER_BANJOBS/${JOB_TEMP}.log"
-JOB_IN="$BANNER_BANJOBS/${JOB_TEMP}.in"
+##JOB_LOG="$BANNER_BANJOBS/${JOB_TEMP}.log"
+##JOB_IN="$BANNER_BANJOBS/${JOB_TEMP}.in"
 
-chmod 777 $JOB_IN
-echo "${l_uidpwd}" >> $JOB_IN
-echo "$ONE_UP_NUM" >>  $JOB_IN
-echo " " >> $JOB_IN
+#chmod 777 $JOB_IN
+##echo "${l_uidpwd}" >> $JOB_IN
+##echo "$ONE_UP_NUM" >>  $JOB_IN
+##echo " " >> $JOB_IN
 
 
 
-echo $FOURDIGIT '/' $TWODIGIT '/' $ONE_UP_NUM '/' $BANNER_BANJOBS '/STOP HERE'
-read x 
+#echo $FOURDIGIT '/' $TWODIGIT '/' $ONE_UP_NUM '/' $BANNER_BANJOBS '/STOP HERE'
+#read x 
 
-insert_into_gjbprun() {
 sqlplus -s <<EOF >> ${SCRIPT_LOG}
 $l_uidpwd
 set showmode off
@@ -103,78 +106,95 @@ set heading off
 set pagesize 1
 set tab off
 set trim on
-set feedback off
+set feedback on
+spool $TDA_DIR/rcrtp_debug.lst
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '01', sysdate, '${FOURDIGIT}' );
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '01', sysdate, '${FOURDIGIT}' );
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '02', sysdate, 'EDE' );
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '02', sysdate, 'EDE' );
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '03', sysdate, '1');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '03', sysdate, '1');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '05', sysdate, 'Y' );
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '05', sysdate, 'Y' );
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '06', sysdate, 'Y');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '06', sysdate, 'Y');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '07', sysdate, 'N');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '07', sysdate, 'N');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '08', sysdate, 'N');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '08', sysdate, 'N');
+--insert into gjbprun
+--( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
+--values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '09', sysdate, 'N/A');
+--insert into gjbprun
+--( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
+--values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '10', sysdate, 'N/A’);
+--insert into gjbprun
+--( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
+--values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '11', sysdate, 'N/A');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '09', sysdate, 'N/A');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '12', sysdate, 'Y');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '10', sysdate, 'N/A’);
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '14', sysdate, 'B');
+--insert into gjbprun
+--( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
+--values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '15', sysdate, 'N/A');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '11', sysdate, 'N/A');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '16', sysdate, 'N');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '12', sysdate, 'Y');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '17', sysdate, 'N');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '14', sysdate, 'B');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '18', sysdate, 'Y');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '15', sysdate, 'N/A');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '19', sysdate, 'Y');
 insert into gjbprun
 ( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '16', sysdate, 'N');
-insert into gjbprun
-( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '17', sysdate, 'N');
-insert into gjbprun
-( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '18', sysdate, 'Y');
-insert into gjbprun
-( gjbprun_job, gjbprun_one_up_no, gjbprun_number, gjbprun_activity_date, gjbprun_value)
-values ( 'RCRTP${TWODIGIT}' $ONE_UP_NUM, '19', sysdate, 'Y');
+values ( 'RCRTP${TWODIGIT}' ,$ONE_UP_NUM, '99', sysdate, '55');
+\
+spool off;
 exit;
 EOF
-}
-
 
 DTE=`date`
-LIST="${BANNER_BANJOBS}/${JOB_TEMP}.lis"
+##LIST="${BANNER_BANJOBS}/${JOB_TEMP}.lis"
 
-echo "Start ......... $DTE" >>  $JOB_LOG
+##echo "Start ......... $DTE" >>  $JOB_LOG
 echo " " >> $SCRIPT_LOG
 echo "$DTE ${JOB} -f -o $LIST started"  |  tee -ai  $SCRIPT_LOG
 
-${JOB} –f –o $LIST <$JOB_IN 1>> $JOB_LOG 2>&1
+l_uid=faisusr
+l_pwd=`cat $BANNER_HOME/p_system8`
+PSWD=$l_pwd
+BANUID=$l_uid
+ONE_UP=$ONE_UP_NUM
+PROG=$JOB
+PRNT=DATABASE
+export DATA_HOME=/opt2/sct/banner/dataload
+export DATA_PATH=$DATA_HOME/finaid
+# Determine what type of process is to be run and add extension.
+#    E - executable (assumes cobol)
+#    P - process (assumes shell script)
+#    R - report (assumes RPT)
+#    C - report (assumes C executable)
+#    J - java process (assumes Java executable)
 
+#sh gjajobs.shl $JOB  J $BANUID $PSWD $ONE_UP $PRNT
+sh $JOB.shl $BANUID $PSWD $ONE_UP $PRNT
 
-echo " " >> $LIST
-cat $LIST >> $JOB_LOG
 
 DTE="`date`"
-echo "End ......... $DTE"  >> $JOB_LOG
 echo "$DTE ${JOB} -f -o $LIST ended" | tee -ai  $SCRIPT_LOG
 
 # clean up  one up file

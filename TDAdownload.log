@@ -1,0 +1,133 @@
++ . /opt2/jwu/bin/TDAccess/set_TDA_parameters.sh
+++ export TDA_DIR=/opt2/jwu/bin/TDAccess
+++ TDA_DIR=/opt2/jwu/bin/TDAccess
+++ cd /opt2/jwu/bin/TDAccess
++ echo 'transfer=(name=RECVCLASS_ISIR1  RECEIVECLASS=IDSA22OP    receive=./incoming/idsa22op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
+transfer=(name=RECVCLASS_ISIR2  RECEIVECLASS=IGSA22OP    receive=./incoming/igsa22op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
+transfer=(name=RECVCLASS_ISIR3  RECEIVECLASS=ISRF22OP    receive=./incoming/isrf22op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
+transfer=(name=RECVCLASS_ISIR4  RECEIVECLASS=IGSG22OP    receive=./incoming/igsg22op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
+transfer=(name=RECVCLASS_ISIR5  RECEIVECLASS=IDAP22OP    receive=./incoming/idap22op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
+transfer=(name=RECVCLASS_ISIR6  RECEIVECLASS=IGCO22OP    receive=./incoming/igco22op.tdc  UNCOMP=Y  APPEND=Y  AUTOEXT=3)
+save'
++ export LD_LIBRARY_PATH=/opt/FJSVcbl64/lib:/opt/FJSVXbsrt/lib:/opt/FJSVXmeft/lib:/opt/app/oracle/product/12.1.0/client_1/lib:/usr/lib:/usr/local/lib:/usr/local/include/icu/source/common:/opt/lib/mflmf/lib:/opt/FJSVcbl64/lib:/opt2/sct/banner/general/exe:/opt2/jwu/bin/TDAccess
++ LD_LIBRARY_PATH=/opt/FJSVcbl64/lib:/opt/FJSVXbsrt/lib:/opt/FJSVXmeft/lib:/opt/app/oracle/product/12.1.0/client_1/lib:/usr/lib:/usr/local/lib:/usr/local/include/icu/source/common:/opt/lib/mflmf/lib:/opt/FJSVcbl64/lib:/opt2/sct/banner/general/exe:/opt2/jwu/bin/TDAccess
++ ./tdclientc network=saigportaltest RESPLOG=./temp/resplog.txt CMDFILE=./maint/recvclass_ISIR.c RESET
+*** IN FIPS MODE ***
+USING TLSv1.2 HASH SHA512
+Premaster Secret:
+0000 - 05 1d f7 15 62 53 ca 28-61 c8 1f 55 dc 53 a1 68   ....bS.(a..U.S.h
+0010 - 77 27 97 35 fb 16 a1 fc-67 a6 80 b8 08 49 de 39   w'.5....g....I.9
+0020 - d3 5b 1a fc ae 09 67 c7-55 70 f5 ff 7f a0 01 0a   .[....g.Up......
+0030 - 1b 0b e4 c5 9e e1 54 e6-c0 b0 c9 86 0d fe e7 da   ......T.........
+0040 - 58 4f 99 5d ca 06 53 49-                          XO.]..SI
+Client Random:
+0000 - 73 1d f7 61 2b 1d f2 bd-83 08 cf 07 70 70 af 47   s..a+.......pp.G
+0010 - 15 01 ed 6a 3a 52 53 78-93 83 ec 0c 17 44 78 e5   ...j:RSx.....Dx.
+Server Random:
+0000 - 04 1b bd cb 4d b4 93 af-d8 e7 16 02 f6 73 2c 91   ....M........s,.
+0010 - 39 5a 45 2a 24 9f 35 72-6c c1 01 f5 39 da 31 72   9ZE*$.5rl...9.1r
+Master Secret:
+0000 - 8e 17 c9 d7 0f 43 2a 5f-19 71 65 4e 8d 63 6a 37   .....C*_.qeN.cj7
+0010 - e4 84 37 24 ab 9b 88 5f-61 46 b4 d4 70 e6 47 af   ..7$..._aF..p.G.
+0020 - 13 f8 50 db 85 0d 20 2d-c7 38 9e d7 53 0b 55 4a   ..P... -.8..S.UJ
+
+bTrade TDAccess Client Command Line         Version V3.3.1  Oct 19 2017
+
+Processing new transfer [RECVCLASS_ISIR1]
+Processing new transfer [RECVCLASS_ISIR2]
+Processing new transfer [RECVCLASS_ISIR3]
+Processing new transfer [RECVCLASS_ISIR4]
+Processing new transfer [RECVCLASS_ISIR5]
+Processing new transfer [RECVCLASS_ISIR6]
+Present working directory is [./]
+Using ini-file               [./tdclient.ini]
+Using secondary ini-file     [./exfer.ini]
+Using address book           [./tpaddrss.ini]
+
+Using ini-file network entry SAIGPORTALTEST
+using the following settings:
+Using any available client-side port
+Server sub-style:        
+Host IP name/address:    SAIGMAILBOXTEST.ED.GOV
+Host IP2 name/address:   
+Server logonUserId:      TG51339
+Server password:         ******
+Server Style:            EAFTP
+Server Case:             Leave case untouched
+Server Control Port:     26581
+Server SSL:              True
+Diffie-Hellman Only:     True
+FTP Timeout value:           0
+>>>>>>>>>> Start Stored Transfer Processing
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR1
+-----------------------------------------------
+********** Start Communications Session
+Connecting to server SAIGPORTALTEST...
+200 Command OK.
+Connected.
+200 Command OK.
+200 Command OK.
+Logged into FTP server as user TG51339
+Setting communications mode to ASCII
+200 Type is A.
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR1 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR2
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR2 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR3
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR3 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR4
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR4 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR5
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR5 completed successfully
+
+-----------------------------------------------
+Executing Transfer SAIGPORTALTEST-RECVCLASS_ISIR6
+-----------------------------------------------
+Obtaining file list from server
+226 Transfer complete.
+No files found on server to be received ...
+
+Transfer SAIGPORTALTEST-RECVCLASS_ISIR6 completed successfully
+
+Termination started...
+Disconnecting...
+221 Goodbye.
+********** End Communications Session
+Task exit status: OK
+Program run completed successfully!
+Exit status: SUCCESS (000000)
+ls: cannot access incoming/*.tdc: No such file or directory
+0 NUM OF FILES

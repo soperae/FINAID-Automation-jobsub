@@ -1,0 +1,80 @@
++ rcpmtch -f -o /opt2/sct/banjobs/TEST/rcpmtch_4082487.lis
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.txt ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.html ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.lis2 ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.dat ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.csv ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.xml ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.err ']'
++ gurinso -n 4082487 -l /opt2/sct/banjobs/TEST/rcpmtch_4082487.lis -j rcpmtch -w faisusr faisusr/bantest61
++ gurinso -n 4082487 -l /opt2/sct/banjobs/TEST/rcpmtch_4082487.log -j rcpmtch -w faisusr faisusr/bantest61
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082487.in
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082487.shl
++ exit 0
++ rcpmtch -f -o /opt2/sct/banjobs/TEST/rcpmtch_4082487.lis
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.txt ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.html ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.lis2 ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.dat ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.csv ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.xml ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082487.err ']'
++ gurinso -n 4082487 -l /opt2/sct/banjobs/TEST/rcpmtch_4082487.lis -j rcpmtch -w faisusr faisusr/bantest61
++ gurinso -n 4082487 -l /opt2/sct/banjobs/TEST/rcpmtch_4082487.log -j rcpmtch -w faisusr faisusr/bantest61
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082487.in
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082487.shl
++ exit 0
++ rcpmtch.shl faisusr bantest61 4082487 RCPMTCH DATABASE
+/opt2/sct/banjobs/TEST/rcpmtch_4082487.shl: line 1: rcpmtch.shl: command not found
++ rcpmtch -f -o /opt2/sct/banjobs/TEST/rcpmtch_4082510.lis
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.txt ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.html ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.lis2 ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.dat ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.csv ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.xml ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082510.err ']'
++ gurinso -n 4082510 -l /opt2/sct/banjobs/TEST/rcpmtch_4082510.lis -j rcpmtch -w faisusr faisusr/bantest61
++ gurinso -n 4082510 -l /opt2/sct/banjobs/TEST/rcpmtch_4082510.log -j rcpmtch -w faisusr faisusr/bantest61
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082510.in
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082510.shl
++ exit 0
++ rcpmtch -f -o /opt2/sct/banjobs/TEST/rcpmtch_4082516.lis
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.txt ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.html ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.lis2 ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.dat ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.csv ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.xml ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082516.err ']'
++ gurinso -n 4082516 -l /opt2/sct/banjobs/TEST/rcpmtch_4082516.lis -j rcpmtch -w faisusr faisusr/bantest61
++ gurinso -n 4082516 -l /opt2/sct/banjobs/TEST/rcpmtch_4082516.log -j rcpmtch -w faisusr faisusr/bantest61
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082516.in
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082516.shl
++ exit 0
++ rcpmtch -f -o /opt2/sct/banjobs/TEST/rcpmtch_4082540.lis
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.txt ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.html ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.lis2 ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.dat ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.csv ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.xml ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082540.err ']'
++ gurinso -n 4082540 -l /opt2/sct/banjobs/TEST/rcpmtch_4082540.lis -j rcpmtch -w faisusr faisusr/bantest61
++ gurinso -n 4082540 -l /opt2/sct/banjobs/TEST/rcpmtch_4082540.log -j rcpmtch -w faisusr faisusr/bantest61
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082540.in
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082540.shl
++ exit 0
++ rcpmtch -f -o /opt2/sct/banjobs/TEST/rcpmtch_4082548.lis
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.txt ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.html ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.lis2 ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.dat ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.csv ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.xml ']'
++ '[' -r /opt2/sct/banjobs/TEST/rcpmtch_4082548.err ']'
++ gurinso -n 4082548 -l /opt2/sct/banjobs/TEST/rcpmtch_4082548.lis -j rcpmtch -w faisusr faisusr/bantest61
++ gurinso -n 4082548 -l /opt2/sct/banjobs/TEST/rcpmtch_4082548.log -j rcpmtch -w faisusr faisusr/bantest61
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082548.in
++ /bin/rm /opt2/sct/banjobs/TEST/rcpmtch_4082548.shl
++ exit 0

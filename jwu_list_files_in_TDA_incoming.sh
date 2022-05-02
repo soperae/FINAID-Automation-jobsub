@@ -1,8 +1,8 @@
 #! /bin/sh
-. $HOME/set_TDA_parameters.sh 
+. /opt2/jwu/bin/TDAccess/set_TDA_parameters.sh 
 
 cd $TDA_DIR/incoming
-ISIR_FILES=`ls i*`
+ISIR_FILES=`ls i*.tdc`
 echo $ISIR_FILES
 
 #re="^([^-]+)-(.*)$"

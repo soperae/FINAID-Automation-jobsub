@@ -2,7 +2,7 @@
 #Expected parameters:
 #$1=file name to process
 #$2=directory path
-. $HOME/set_TDA_parameters.sh
+. /opt2/jwu/bin/TDAccess/set_TDA_parameters.sh 
 #cd $TDA_DIR/incoming
 #pwd
 for i in `ls $TDA_DIR/incoming/*op*`
